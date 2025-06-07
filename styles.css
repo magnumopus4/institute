@@ -1,0 +1,77 @@
+/* General Styles */
+
+body {
+    background: url('image2.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+section[id] {
+    scroll-margin-top: 80px; /* Offset for sticky navbar */
+}
+.hero-overlay {
+    background: rgba(16, 15, 15, 0.211); /* Increased opacity to obscure any existing text */
+}
+
+/* Hero Section Background with Overlay */
+.hero-overlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url no-repeat center center/cover;
+    animation: slideDown 1.5s ease-out;
+}
+
+/* Navigation Link Hover Effect */
+nav ul li a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #93c5fd; /* Tailwind's blue-300 */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #93c5fd;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    min-width: 200px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.group:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu li a {
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #1e40af; /* Tailwind's blue-700 */
+}
+
+/* Hero Section Animation on Page Load */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
